@@ -16,6 +16,9 @@ Upper idea right now:
   - Notification
   - Localization
   - Email service
+  - Commenting service
+  - Search
+  - Trending/Latest topics
   - Docker to deploy this code
   
  
