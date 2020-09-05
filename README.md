@@ -22,3 +22,9 @@ Upper idea right now:
   - Docker to deploy this code
   
  
+Designs: https://drive.google.com/file/d/1KDrZKDydq-RQg1SaS5CSnhbkXuZ9DGt0/view?usp=sharing
+This covers:
+- Homepage layout
+- List of blogs
+- Single blog look
+- Comments
