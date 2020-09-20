@@ -1,6 +1,9 @@
 const express = require ('express');
 const app = express();
 const connectDB = require('../DB/connection');
+const dotenv = require('dotenv').config();
+
+console.log(process.env.PORT);
 
 connectDB();
 app.get('/',(req, res) => {
@@ -8,7 +11,7 @@ app.get('/',(req, res) => {
 
 });
 
-app.listen(8080,function(){
-    console.log('server started on port 8080');
+app.listen(process.env.PORT,function(){
+    console.log('server started');
 });
 
