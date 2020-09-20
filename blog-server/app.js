@@ -3,8 +3,6 @@ const app = express();
 const connectDB = require('../DB/connection');
 const dotenv = require('dotenv').config();
 
-console.log(process.env.PORT);
-
 connectDB();
 app.get('/',(req, res) => {
     res.send('Welcome');
@@ -12,6 +10,6 @@ app.get('/',(req, res) => {
 });
 
 app.listen(process.env.PORT,function(){
-    console.log('server started');
+    console.log('server started !');
 });
 
