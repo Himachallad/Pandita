@@ -25,7 +25,7 @@ Upper idea right now:
 Designs: https://drive.google.com/file/d/1KDrZKDydq-RQg1SaS5CSnhbkXuZ9DGt0/view?usp=sharing
 ![image](https://user-images.githubusercontent.com/20709166/92312252-9f23f980-efdc-11ea-8f14-25e09a284f2a.png)
 
-Main page view https://xd.adobe.com/view/b32b323e-c5e7-4cf3-accf-ff01484fadda-e678/
+Main page view https://xd.adobe.com/view/90ecaed6-fffd-4fac-81fd-7b70618332b6-c5bf/?fullscreen
 
 This covers:
 - Homepage layout
