@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import { Badge, IconButton } from "@material-ui/core";
 import NotificationIcon from "../../../../icons/notificationIcon";
 

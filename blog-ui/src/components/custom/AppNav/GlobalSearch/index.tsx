@@ -1,11 +1,5 @@
-import {
-  makeStyles,
-  Theme,
-  createStyles,
-  InputBase,
-  fade,
-} from "@material-ui/core";
-import * as React from "react";
+import React from "react";
+import { makeStyles, Theme, createStyles, InputBase } from "@material-ui/core";
 import SearchIcon from "../../../../icons/searchIcon";
 
 interface SearchProps {
@@ -26,10 +20,7 @@ const useStyles = makeStyles((theme: Theme) =>
     search: {
       position: "relative",
       borderRadius: theme.shape.borderRadius,
-      backgroundColor: fade(theme.palette.common.white, 0.85),
-      "&:hover": {
-        backgroundColor: fade(theme.palette.common.white, 1),
-      },
+      backgroundColor: theme.palette.common.white,
       marginRight: theme.spacing(2),
       marginLeft: 0,
       width: "100%",
@@ -39,7 +30,7 @@ const useStyles = makeStyles((theme: Theme) =>
       },
     },
     searchIcon: {
-      padding: theme.spacing(0.5, 2, 2, 2),
+      padding: theme.spacing(0, 0.5, 0.5, 1),
       height: "100%",
       position: "absolute",
       pointerEvents: "none",

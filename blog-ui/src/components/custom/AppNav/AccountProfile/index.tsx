@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import { IconButton, Menu, MenuItem } from "@material-ui/core";
 import AccountIcon from "../../../../icons/accountIcon";

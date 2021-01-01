@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import { AppBar, Toolbar, IconButton, Menu, MenuItem } from "@material-ui/core";
 import { SearchField } from "./GlobalSearch";
@@ -53,12 +53,12 @@ export default function NavigationBar(): JSX.Element {
   const mobileOptions = (): JSX.Element[] => {
     const menuOptions: JSX.Element[] = [];
     menuOptions.push(
-      <MenuItem>
+      <MenuItem key="notification_menu_item">
         <Notification fill="#2196f3" showName />
       </MenuItem>
     );
     menuOptions.push(
-      <MenuItem>
+      <MenuItem key="profile_menu_item">
         <AccountProfile fill="#2196f3" showName />
       </MenuItem>
     );
