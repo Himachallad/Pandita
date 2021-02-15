@@ -14,7 +14,7 @@ const theme = createMuiTheme({
     },
   },
   typography: {
-    fontFamily: "Open Sans",
+    fontFamily: ["Open Sans", "Helvetica"].join(","),
   },
 });
 
