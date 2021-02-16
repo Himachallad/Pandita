@@ -1,11 +1,9 @@
 import { App } from '../src/components/App'
-import theme from '../src/theme';
-import { ThemeProvider } from '@material-ui/core';
+import NavigationBar from '../src/components/custom/AppNav';
 function HomePage() {
     return <>
-        <ThemeProvider theme={theme}>
-            <App />
-        </ThemeProvider>
+        <NavigationBar />
+        <App />
     </>
 }
 

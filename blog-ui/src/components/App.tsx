@@ -16,7 +16,6 @@ export const App = (): JSX.Element => {
   const classes = useStyles();
   return (
     <>
-      <NavigationBar />
       <Typography variant="h3" className={classes.title}>
         Popular posts!
       </Typography>
