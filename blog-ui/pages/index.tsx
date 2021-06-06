@@ -1,10 +1,13 @@
-import { App } from '../src/components/App'
-import NavigationBar from '../src/components/custom/AppNav';
+import { App } from "../src/components/App";
+import NavigationBar from "../src/components/custom/AppNav";
 function HomePage() {
-    return <>
-        <NavigationBar />
+  return (
+    <>
+      <NavigationBar>
         <App />
+      </NavigationBar>
     </>
+  );
 }
 
-export default HomePage
+export default HomePage;

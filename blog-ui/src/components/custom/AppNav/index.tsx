@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import { AppBar, Toolbar, IconButton, Menu, MenuItem } from "@material-ui/core";
 import { SearchField } from "./GlobalSearch";
@@ -6,6 +6,7 @@ import MenuIcon from "../../../icons/menuIcon";
 import { AccountProfile } from "./AccountProfile";
 import { Notification } from "./Notification";
 import MoreIcon from "../../../icons/moreIcon";
+import SideNavBar from "./SideNavBar";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -34,8 +35,19 @@ const useStyles = makeStyles((theme: Theme) =>
     dropdown: {
       "margin-top": "30px",
     },
+    appBar: {
+      zIndex: theme.zIndex.drawer + 1,
+      transition: theme.transitions.create(["width", "margin"], {
+        easing: theme.transitions.easing.sharp,
+        duration: theme.transitions.duration.leavingScreen,
+      }),
+    },
   })
 );
+
+interface SideBarRef {
+  openSideBar: (val: boolean) => void;
+}
 
 export default function NavigationBar(props: any): JSX.Element {
   const classes = useStyles();
@@ -49,6 +61,8 @@ export default function NavigationBar(props: any): JSX.Element {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const sideBarref = useRef<SideBarRef>();
 
   const mobileOptions = (): JSX.Element[] => {
     const menuOptions: JSX.Element[] = [];
@@ -66,46 +80,57 @@ export default function NavigationBar(props: any): JSX.Element {
     return menuOptions;
   };
 
+  const toggleSideNav = () => {
+    if (sideBarref.current) {
+      sideBarref.current.openSideBar(true);
+    }
+  };
+
   return (
-    <div className={classes.grow}>
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton
-            edge="start"
-            className={classes.menu}
-            color="inherit"
-            aria-label="menu"
-          >
-            <MenuIcon fill="white" />
-          </IconButton>
-          <SearchField
-            placeholder="Search"
-            width={300}
-            background="#FFFFFF"
-            expandOnClick={true}
-          />
-          <div className={classes.grow} />
-          <div className={classes.sectionDesktop}>
-            <Notification fill="white" />
-            <AccountProfile fill="white" />
-          </div>
-          <div className={classes.mobileView}>
-            <IconButton onClick={handleClick}>
-              <MoreIcon fill="white" />
-            </IconButton>
-            <Menu
-              id="account-options"
-              className={classes.dropdown}
-              anchorEl={anchorEl}
-              keepMounted
-              open={Boolean(anchorEl)}
-              onClose={handleClose}
+    <>
+      <div className={classes.grow}>
+        <AppBar position="static" className={classes.appBar}>
+          <Toolbar>
+            <IconButton
+              edge="start"
+              className={classes.menu}
+              color="inherit"
+              aria-label="menu"
+              onClick={toggleSideNav}
             >
-              {mobileOptions()}
-            </Menu>
-          </div>
-        </Toolbar>
-      </AppBar>
-    </div>
+              <MenuIcon fill="white" />
+            </IconButton>
+            <SearchField
+              placeholder="Search"
+              width={300}
+              background="#FFFFFF"
+              expandOnClick={true}
+            />
+            <div className={classes.grow} />
+            <div className={classes.sectionDesktop}>
+              <Notification fill="white" />
+              <AccountProfile fill="white" />
+            </div>
+            <div className={classes.mobileView}>
+              <IconButton onClick={handleClick}>
+                <MoreIcon fill="white" />
+              </IconButton>
+              <Menu
+                id="account-options"
+                className={classes.dropdown}
+                anchorEl={anchorEl}
+                keepMounted
+                open={Boolean(anchorEl)}
+                onClose={handleClose}
+              >
+                {mobileOptions()}
+              </Menu>
+            </div>
+          </Toolbar>
+        </AppBar>
+        <SideNavBar ref={sideBarref} openit={false} />
+        <div>{props && props.children}</div>
+      </div>
+    </>
   );
 }

@@ -1,6 +1,5 @@
 import React from "react";
 import BlogGridItem from "./custom/BlogItem";
-import NavigationBar from "./custom/AppNav";
 import blogs from "../config/trendingBlogs.json";
 import { createStyles, makeStyles, Theme, Typography } from "@material-ui/core";
 
