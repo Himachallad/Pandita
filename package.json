@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "start-server": "cd blog-server && yarn start",
-    "start-ui": "cd blog-ui && yarn start"
+    "start-ui": "cd blog-ui && yarn start",
+    "start-ui-dev": "cd blog-ui && yarn dev"
   },
   "author": "",
   "license": "ISC",
