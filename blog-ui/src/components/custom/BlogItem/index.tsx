@@ -16,11 +16,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     gridContainer: {
       padding: theme.spacing(2),
-      width: '100%'
-    },
-    paper: {
-      color: theme.palette.text.secondary,
-      display: "flex",
+      width: "100%",
     },
     card: {
       width: "100%",
@@ -30,8 +26,8 @@ const useStyles = makeStyles((theme: Theme) =>
       width: "100%",
     },
     blogImg: {
-      width: "140px",
-      height: "140px",
+      "max-width": "200px",
+      "max-height": "150px",
     },
   })
 );
@@ -46,8 +42,7 @@ const getCardView = (blogsList: any) => {
     ) => {
       blogItems.push(
         <Grid item xs={12} key={index}>
-          <Paper className={classes.paper}>
-            <Card className={classes.card}>
+            <Card className={classes.card} variant="outlined" square>
               <CardActionArea className={classes.cardAction}>
                 <CardMedia
                   className={classes.blogImg}
@@ -70,7 +65,6 @@ const getCardView = (blogsList: any) => {
                 </CardContent>
               </CardActionArea>
             </Card>
-          </Paper>
         </Grid>
       );
     }
@@ -82,7 +76,7 @@ export default function BlogGridItem(blogs: any) {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <Grid container spacing={2} className={classes.gridContainer}>
+      <Grid container spacing={3} className={classes.gridContainer}>
         {getCardView(blogs)}
       </Grid>
     </div>
