@@ -11,10 +11,12 @@ import Typography from "@material-ui/core/Typography";
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      flexGrow: 1,
+      display: "grid",
+      gridTemplateColumns: "1fr",
     },
     gridContainer: {
       padding: theme.spacing(2),
+      width: '100%'
     },
     paper: {
       color: theme.palette.text.secondary,

@@ -18,11 +18,12 @@ export default function MyApp(props) {
   return (
     <>
       <Head>
-        <title>Techblog</title>
+        <title>Pandita</title>
         <meta
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width"
         />
+        <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
       <ThemeProvider theme={theme}>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}

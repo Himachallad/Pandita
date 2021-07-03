@@ -7,7 +7,6 @@ import React, {
 } from "react";
 import { sideNavKeys, sideNavMap } from "../../../../config/sideNavMap";
 import { isIos } from "../../../../utils/deviceCheck";
-import * as css from "../../../../../styles/test.module.scss";
 interface SideNavItemProps {
   name: string;
 }
@@ -35,7 +34,7 @@ const SideNavBar = ({ openit }: SideNavProps, ref): JSX.Element => {
       const item: SideNavItemProps = sideNavMap[val];
       ret.push(
         <div
-          className={css.navBlock}
+          // className={css.navBlock}
           key={item.name}
           onClick={() => {
             setOpenSideBar(false);

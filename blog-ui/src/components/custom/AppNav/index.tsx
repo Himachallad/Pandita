@@ -1,12 +1,14 @@
-import React, { useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
-import { AppBar, Toolbar, IconButton, Menu, MenuItem } from "@material-ui/core";
+import { AppBar, Toolbar, IconButton, Menu, MenuItem, FormHelperText } from "@material-ui/core";
 import { SearchField } from "./GlobalSearch";
 import MenuIcon from "../../../icons/menuIcon";
 import { AccountProfile } from "./AccountProfile";
 import { Notification } from "./Notification";
 import MoreIcon from "../../../icons/moreIcon";
 import SideNavBar from "./SideNavBar";
+import BrightnessMediumIcon from "../../../icons/ThemeIcon";
+import { ThemeContext } from "../../../theme";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -24,6 +26,8 @@ const useStyles = makeStyles((theme: Theme) =>
       display: "none",
       [theme.breakpoints.up("sm")]: {
         display: "flex",
+        "flex-direction": "row",
+        "align-items": "center",
       },
     },
     mobileView: {
@@ -41,7 +45,7 @@ const useStyles = makeStyles((theme: Theme) =>
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.leavingScreen,
       }),
-    },
+    }
   })
 );
 
@@ -51,7 +55,7 @@ interface SideBarRef {
 
 export default function NavigationBar(props: any): JSX.Element {
   const classes = useStyles();
-
+  const themeObj = useContext(ThemeContext);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -66,6 +70,14 @@ export default function NavigationBar(props: any): JSX.Element {
 
   const mobileOptions = (): JSX.Element[] => {
     const menuOptions: JSX.Element[] = [];
+    menuOptions.push(
+      <MenuItem key="theme_menu_item" onClick={changeTheme}>
+        <IconButton>
+          <BrightnessMediumIcon fill="#2196f3" />
+        </IconButton>
+        Theme
+      </MenuItem>
+    );
     menuOptions.push(
       <MenuItem key="notification_menu_item">
         <Notification fill="#2196f3" showName />
@@ -85,6 +97,11 @@ export default function NavigationBar(props: any): JSX.Element {
       sideBarref.current.openSideBar(true);
     }
   };
+
+  const changeTheme = () => {
+    const newTheme = themeObj.themeValue === "light" ? "dark" : "light";
+    themeObj.changeTheme(newTheme);
+  };;
 
   return (
     <>
@@ -108,6 +125,9 @@ export default function NavigationBar(props: any): JSX.Element {
             />
             <div className={classes.grow} />
             <div className={classes.sectionDesktop}>
+              <IconButton onClick={changeTheme}>
+                <BrightnessMediumIcon fill="white" />
+              </IconButton>
               <Notification fill="white" />
               <AccountProfile fill="white" />
             </div>
