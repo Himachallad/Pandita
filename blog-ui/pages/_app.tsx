@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import Head from "next/head";
 import './globalStyles.css';
 import { CssBaseline } from "@material-ui/core";
-import NavigationBar from "../src/components/custom/AppNav";
 import CustomTheme from "../src/theme/CustomTheme";
 
 export default function MyApp(props) {
