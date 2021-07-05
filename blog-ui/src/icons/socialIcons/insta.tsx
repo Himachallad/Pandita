@@ -1,16 +1,18 @@
+import { useTheme } from "@material-ui/core";
 import React from "react";
 
 const InstaIcon = (props: any) => {
+  const theme = useTheme();
+  const iconColor = theme.palette.type === "dark" ? "white" : "black";
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      enable-background="new 0 0 124 124"
       viewBox="0 0 124 124"
       width="20"
       height="20"
     >
       <path
-        fill="black"
+        fill={iconColor}
         d="M87.2,33.6c-3.1,0-5.6,2.5-5.6,5.6c0,3.1,2.5,5.6,5.6,5.6c3.1,0,5.6-2.5,5.6-5.6
 		C92.8,36.1,90.3,33.6,87.2,33.6z M62.2,40.8c-13,0-23.6,10.6-23.6,23.6s10.6,23.6,23.6,23.6s23.6-10.6,23.6-23.6
 		S75.2,40.8,62.2,40.8z M62.2,79.6c-8.4,0-15.1-6.8-15.1-15.1c0-8.4,6.8-15.1,15.1-15.1c8.4,0,15.1,6.8,15.1,15.1

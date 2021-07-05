@@ -37,8 +37,26 @@
     
     .blogContainer:hover .socialLinks{
         display: flex;
-        justify-content: flex-end;    
+        justify-content: flex-end;  
+        animation: fadeInFromNone 1s ease-out; 
     }
+
+    @keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
 
     .blogContainer:hover .blogImage {
         transition: all 0.5s;

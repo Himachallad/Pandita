@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import Head from "next/head";
 import './globalStyles.css';
+import { CssBaseline } from "@material-ui/core";
+import CustomTheme from "../src/theme/CustomTheme";
 
 export default function MyApp(props) {
   const { Component, pageProps } = props;
@@ -23,7 +25,10 @@ export default function MyApp(props) {
         />
         <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
-        <Component {...pageProps} />
+      <CustomTheme>
+        <CssBaseline />
+          <Component {...pageProps} />
+      </CustomTheme>
     </>
   );
 }
