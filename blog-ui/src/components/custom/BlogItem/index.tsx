@@ -6,20 +6,17 @@ import {
   useTheme,
 } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
-import Card from "@material-ui/core/Card";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
-import Typography from "@material-ui/core/Typography";
+import Blog from "../Blog";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       display: "grid",
       gridTemplateColumns: "1fr",
+      padding: "0 10%",
     },
     gridContainer: {
-      padding: '20px 0',
+      padding: "20px 0",
       width: "100%",
       display: "grid",
       gridTemplateColumns: "1fr 1fr 1fr",
@@ -33,15 +30,22 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     cardAction: {
       display: "grid",
-      gridTemplateRows: '4fr 1fr',
-      'max-height': '300px',
+      gridTemplateRows: "4fr 1fr",
+      "max-height": "300px",
     },
     blogImg: {
-      "max-height": "200px",
+      "max-height": "100%",
     },
     blogTitle: {
-      'line-height': '1.2em',
-      maxHeight: '3.6em'
+      "line-height": "1.2em",
+      maxHeight: "3.6em",
+    },
+    imageBlock: {
+      height: "200px",
+    },
+    blogGrid: {
+      display: 'flex',
+      justifyContent: 'center'
     }
   })
 );
@@ -49,7 +53,6 @@ const useStyles = makeStyles((theme: Theme) =>
 const getCardView = (blogsList: any) => {
   const classes = useStyles();
   const theme = useTheme();
-  console.log(theme.breakpoints.down("xs"));
   let blogItems: JSX.Element[] = [];
   blogsList?.blogList?.forEach(
     (
@@ -57,30 +60,8 @@ const getCardView = (blogsList: any) => {
       index: string | number
     ) => {
       blogItems.push(
-        <Grid item key={index}>
-          <Card className={classes.card} variant="outlined" square>
-            <CardActionArea className={classes.cardAction}>
-              <CardMedia
-                className={classes.blogImg}
-                component="img"
-                alt=""
-                src={blog.source}
-                title=""
-              />
-              <CardContent>
-                <Typography
-                  className={classes.blogTitle}
-                  gutterBottom
-                  variant="subtitle1"
-                >
-                  {blog.desc}
-                </Typography>
-                {/* <Typography variant="body2" color="textSecondary" component="p">
-                  {blog.desc}
-                </Typography> */}
-              </CardContent>
-            </CardActionArea>
-          </Card>
+        <Grid className={classes.blogGrid} item key={index}>
+          <Blog blog={blog} ></Blog> 
         </Grid>
       );
     }
@@ -92,7 +73,7 @@ export default function BlogGridItem(blogs: any) {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <Grid container spacing={3} className={classes.gridContainer}>
+      <Grid container spacing={4} className={classes.gridContainer}>
         {getCardView(blogs)}
       </Grid>
     </div>

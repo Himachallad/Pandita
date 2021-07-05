@@ -1,0 +1,53 @@
+:local {
+    .blogContainer {
+        max-width: 370px;
+        cursor: pointer;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .blogImage {
+        width: 100%;
+        height: 100%;
+    }
+    .blogImgContainer {
+        height: 250px;
+         overflow: hidden; 
+    }
+
+
+    .blogTitleContainer {       
+        .blogTitle {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            margin-top: 15px;
+            border-left: 3px solid red;
+            .blogTitleText {
+                display: flex;
+                align-items: center;
+                padding-left: 10px;
+                min-height: 30px;
+            }
+            .socialLinks {
+                display: none;
+            }
+            
+        }
+    }
+    
+    .blogContainer:hover .socialLinks{
+        display: flex;
+        justify-content: flex-end;    
+    }
+
+    .blogContainer:hover .blogImage {
+        transition: all 0.5s;
+        transform: scale(1.02);
+    }
+
+    .blogDetails {
+        flex-grow: 1;
+        display: flex;
+        align-items: flex-end;
+    }
+}
