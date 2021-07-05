@@ -6,7 +6,8 @@ import {
   useTheme,
 } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
-import Blog from "../Blog";
+import Blog from "../blog";
+import { TextButton } from "../../common/Button";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -44,9 +45,9 @@ const useStyles = makeStyles((theme: Theme) =>
       height: "200px",
     },
     blogGrid: {
-      display: 'flex',
-      justifyContent: 'center'
-    }
+      display: "flex",
+      justifyContent: "center",
+    },
   })
 );
 
@@ -61,7 +62,7 @@ const getCardView = (blogsList: any) => {
     ) => {
       blogItems.push(
         <Grid className={classes.blogGrid} item key={index}>
-          <Blog blog={blog} ></Blog> 
+          <Blog blog={blog}></Blog>
         </Grid>
       );
     }
@@ -76,6 +77,7 @@ export default function BlogGridItem(blogs: any) {
       <Grid container spacing={4} className={classes.gridContainer}>
         {getCardView(blogs)}
       </Grid>
+      <TextButton text="More Button" />
     </div>
   );
 }

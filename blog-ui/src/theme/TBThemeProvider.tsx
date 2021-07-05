@@ -21,9 +21,15 @@ const TBThemeProvider = ({ children }): JSX.Element => {
             main: currentColor === "light" ? "#1e9486" : "#146b61",
           },
           secondary: {
-            main: green[500],
+            main: green[100],
           },
           type: currentColor,
+          background: {
+            default: currentColor === "light" ? "#fff" : "#222222",
+          },
+          text: {
+            secondary: currentColor === "light" ? "#14695f" : "#c8e6c9",
+          },
         },
       })
     );

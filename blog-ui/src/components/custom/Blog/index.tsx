@@ -1,4 +1,4 @@
-import { IconButton, Paper, Typography } from "@material-ui/core";
+import { IconButton, Paper, Typography, useTheme } from "@material-ui/core";
 import React from "react";
 import FacebookIcon from "../../../icons/socialIcons/fb";
 import InstaIcon from "../../../icons/socialIcons/insta";
@@ -7,6 +7,8 @@ import TwitterIcon from "../../../icons/socialIcons/twitter";
 import styles from "./index.module.scss";
 
 const Blog = ({ blog }) => {
+  const theme = useTheme();
+  const isDarkTheme = theme.palette.type === "dark";
   return (
     <Paper elevation={0} square>
       <div className={styles.blogContainer}>
@@ -16,7 +18,10 @@ const Blog = ({ blog }) => {
         <div className={styles.blogTitleContainer}>
           <div className={styles.blogTitle}>
             <div className={styles.blogTitleText}>
-              <Typography variant="subtitle2">
+              <Typography
+                color={isDarkTheme ? "secondary" : "primary"}
+                variant="subtitle2"
+              >
                 {blog.tag.toUpperCase()}
               </Typography>
             </div>
@@ -40,7 +45,10 @@ const Blog = ({ blog }) => {
           <Typography variant="body1">{blog.title}</Typography>
         </div>
         <div className={styles.blogDetails}>
-          <Typography variant="subtitle2">{`${blog.author} / ${blog.date}`}</Typography>
+          <Typography
+            color={isDarkTheme ? "secondary" : "primary"}
+            variant="subtitle2"
+          >{`${blog.author} / ${blog.date}`}</Typography>
         </div>
       </div>
     </Paper>
