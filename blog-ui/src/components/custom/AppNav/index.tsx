@@ -108,7 +108,7 @@ export default function NavigationBar(props: any): JSX.Element {
       <div className={classes.grow}>
         <AppBar position="static" className={classes.appBar}>
           <Toolbar>
-            <IconButton
+            {/* <IconButton
               edge="start"
               className={classes.menu}
               color="inherit"
@@ -116,7 +116,7 @@ export default function NavigationBar(props: any): JSX.Element {
               onClick={toggleSideNav}
             >
               <MenuIcon fill="white" />
-            </IconButton>
+            </IconButton> */}
             <SearchField
               placeholder="Search"
               width={300}
@@ -148,7 +148,7 @@ export default function NavigationBar(props: any): JSX.Element {
             </div>
           </Toolbar>
         </AppBar>
-        <SideNavBar ref={sideBarref} openit={false} />
+        {/* <SideNavBar ref={sideBarref} openit={false} /> */}
         <div>{props && props.children}</div>
       </div>
     </>

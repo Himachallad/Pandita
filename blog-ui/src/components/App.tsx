@@ -12,7 +12,6 @@ export const App = (): JSX.Element => {
         Pandita
       </Typography>
       <BlogGridItem blogList={blogs} />
-      <Footer />
     </>
   );
 };
