@@ -83,7 +83,7 @@ export default function BlogGridItem(blogs: any) {
         {getCardView(blogs)}
       </Grid>
       <div className={classes.morePostButton}>
-        <Button variant="outlined" size="small">
+        <Button variant="contained" size="small" color="secondary">
           More Posts
         </Button>
       </div>
