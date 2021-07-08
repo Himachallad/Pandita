@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import BlogGridItem from "./custom/blogsView";
 import blogs from "../config/trendingBlogs.json";
 import { makeStyles, Typography } from "@material-ui/core";
@@ -12,11 +12,17 @@ const blogStyles = makeStyles({
   },
 });
 
-
-
-
 export const App = (): JSX.Element => {
   const tags = ["tech", "react", "memes", "stories", "trending"];
+
+  const [tagMap, setTagMap] = useState({
+    tech: 0,
+    react: 0,
+    memes: 0,
+    stories: 0,
+    trending: 0,
+  });
+
   const classes = blogStyles();
   return (
     <>
@@ -26,9 +32,11 @@ export const App = (): JSX.Element => {
       <div className={classes.tags}>
         <Tags
           updateTagList={(item) => {
-            console.log("Tag list updated: " + item);
+            const newTagMap = tagMap;
+            newTagMap[item] = !tagMap[item];
+            setTagMap({ ...newTagMap });
           }}
-          tags={tags}
+          tags={tagMap}
         />
       </div>
       <BlogGridItem blogList={blogs} />
