@@ -1,16 +1,36 @@
 import React, { useEffect } from "react";
 import BlogGridItem from "./custom/blogsView";
 import blogs from "../config/trendingBlogs.json";
-import { Typography } from "@material-ui/core";
+import { makeStyles, Typography } from "@material-ui/core";
 import styles from "./App.module.scss";
-import Footer from "./custom/footer";
+import Tags from "./custom/tags";
+
+const blogStyles = makeStyles({
+  tags: {
+    display: "flex",
+    justifyContent: "center",
+  },
+});
+
+
+
 
 export const App = (): JSX.Element => {
+  const tags = ["tech", "react", "memes", "stories", "trending"];
+  const classes = blogStyles();
   return (
     <>
       <Typography color="textSecondary" variant="h4" className={styles.title}>
         Pandita
       </Typography>
+      <div className={classes.tags}>
+        <Tags
+          updateTagList={(item) => {
+            console.log("Tag list updated: " + item);
+          }}
+          tags={tags}
+        />
+      </div>
       <BlogGridItem blogList={blogs} />
     </>
   );
