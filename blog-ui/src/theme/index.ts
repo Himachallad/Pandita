@@ -7,7 +7,7 @@ export const ThemeContext = React.createContext({
   changeTheme: (themeValue) => {},
 });
 
-let theme = createMuiTheme({
+const theme = createMuiTheme({
   palette: {
     primary: {
       main: "#1e9486",

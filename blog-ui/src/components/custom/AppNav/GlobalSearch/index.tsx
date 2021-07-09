@@ -1,6 +1,8 @@
 import React from "react";
 import { makeStyles, Theme, createStyles, InputBase } from "@material-ui/core";
 import SearchIcon from "../../../../icons/searchIcon";
+import { useContext } from "react";
+import SearchContext from "../../../../search";
 
 interface SearchProps {
   placeholder?: string;
@@ -83,6 +85,12 @@ export const SearchField = ({
     expandOnClick,
   };
   const classes = useStyles(styleProps);
+  const searchObj = useContext(SearchContext);
+
+  const updateSearchKey = ({ target }) => {
+    searchObj.changeSearchKey(target.value);
+  };
+
   return (
     <>
       <div className={classes.search}>
@@ -96,6 +104,7 @@ export const SearchField = ({
             input: classes.inputInput,
           }}
           inputProps={{ "aria-label": "search" }}
+          onChange={updateSearchKey}
         />
       </div>
     </>

@@ -1,6 +1,14 @@
 import React, { useContext, useRef, useState } from "react";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
-import { AppBar, Toolbar, IconButton, Menu, MenuItem, FormHelperText } from "@material-ui/core";
+import {
+  AppBar,
+  Toolbar,
+  IconButton,
+  Menu,
+  MenuItem,
+  FormHelperText,
+  Tooltip,
+} from "@material-ui/core";
 import { SearchField } from "./GlobalSearch";
 import MenuIcon from "../../../icons/menuIcon";
 import { AccountProfile } from "./AccountProfile";
@@ -45,7 +53,7 @@ const useStyles = makeStyles((theme: Theme) =>
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.leavingScreen,
       }),
-    }
+    },
   })
 );
 
@@ -101,7 +109,7 @@ export default function NavigationBar(props: any): JSX.Element {
   const changeTheme = () => {
     const newTheme = themeObj.themeValue === "light" ? "dark" : "light";
     themeObj.changeTheme(newTheme);
-  };;
+  };
 
   return (
     <>
@@ -125,9 +133,11 @@ export default function NavigationBar(props: any): JSX.Element {
             />
             <div className={classes.grow} />
             <div className={classes.sectionDesktop}>
-              <IconButton onClick={changeTheme}>
-                <BrightnessMediumIcon fill="white" />
-              </IconButton>
+              <Tooltip title="Theme">
+                <IconButton onClick={changeTheme}>
+                  <BrightnessMediumIcon fill="white" />
+                </IconButton>
+              </Tooltip>
               <Notification fill="white" />
               <AccountProfile fill="white" />
             </div>
