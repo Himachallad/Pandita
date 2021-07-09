@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   makeStyles,
   createStyles,
@@ -8,6 +8,8 @@ import {
 import Grid from "@material-ui/core/Grid";
 import Blog from "../blog";
 import { Button } from "@material-ui/core";
+import { useContext, useState } from "react";
+import SearchContext from "../../../search";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -56,13 +58,12 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-const getCardView = (blogsList: any) => {
+const getCardView = (blogsList: any[]) => {
   const classes = useStyles();
-  const theme = useTheme();
   let blogItems: JSX.Element[] = [];
-  blogsList?.blogList?.forEach(
+  blogsList?.forEach(
     (
-      blog: { title: {}; source: string; desc: React.ReactNode },
+      blog: { title: string; source: string; desc: React.ReactNode },
       index: string | number
     ) => {
       blogItems.push(
@@ -74,16 +75,34 @@ const getCardView = (blogsList: any) => {
   );
   return blogItems;
 };
+const unique = (value, index, self) => {
+  return self.indexOf(value) === index;
+};
 
-export default function BlogGridItem(blogs: any) {
+export default function BlogGridItem({ blogList, tagMap }) {
   const classes = useStyles();
+  const { searchKey } = useContext(SearchContext);
+  const [filteredBlogs, setFilteredBlogs] = useState(blogList);
+  useEffect(() => {
+    // Tag check is not needed if we show all tags or not show all.
+    const isTagCheckNeeded = Object.values(tagMap).filter(unique).length > 1;
+    const filterBySearchKeyBlogs = blogList?.filter((blog) => {
+      return (
+        blog.title.toLowerCase().includes(searchKey.toLowerCase().trim()) &&
+        (!isTagCheckNeeded || (isTagCheckNeeded && tagMap[blog.tag])) &&
+        blog
+      );
+    });
+
+    setFilteredBlogs(filterBySearchKeyBlogs);
+  }, [searchKey, tagMap]);
   return (
     <div className={classes.root}>
       <Grid container spacing={4} className={classes.gridContainer}>
-        {getCardView(blogs)}
+        {getCardView(filteredBlogs)}
       </Grid>
       <div className={classes.morePostButton}>
-        <Button variant="contained" size="small" color="secondary">
+        <Button variant="outlined" size="medium" color="secondary">
           More Posts
         </Button>
       </div>

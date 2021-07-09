@@ -1,10 +1,16 @@
-import { App } from '../../src/components/App'
-import NavigationBar from '../../src/components/custom/AppNav';
+import NavigationBar from "../../src/components/custom/AppNav";
+import { Pandita } from "../../src/components/Pandita";
+import SearchProvider from "../../src/search/SearchProvider";
+
 function TrendingPage() {
-    return <>
+  return (
+    <>
+      <SearchProvider>
         <NavigationBar />
-        <App />
+        <Pandita />
+      </SearchProvider>
     </>
+  );
 }
 
-export default TrendingPage
+export default TrendingPage;
