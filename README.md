@@ -1,4 +1,4 @@
-# TechBlog
+# Pandita
 
 Upper idea right now:
 
