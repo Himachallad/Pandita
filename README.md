@@ -21,9 +21,12 @@ Upper idea right now:
   - Trending/Latest topics
   - Docker to deploy this code
   
- 
-Designs: https://drive.google.com/file/d/1KDrZKDydq-RQg1SaS5CSnhbkXuZ9DGt0/view?usp=sharing
-![image](https://user-images.githubusercontent.com/20709166/92312252-9f23f980-efdc-11ea-8f14-25e09a284f2a.png)
+ #### Desktop view
+![Panditadesktop](https://github.com/Himachallad/Pandita/assets/20709166/189edd2b-e61c-4f80-9441-c20f261907a6)
+
+
+#### Mobile view
+![PanditaMobile](https://github.com/Himachallad/Pandita/assets/20709166/3b4d6f67-a592-4c10-a568-e4642e1006fc)
 
 Main page view https://xd.adobe.com/view/90ecaed6-fffd-4fac-81fd-7b70618332b6-c5bf/?fullscreen
 
