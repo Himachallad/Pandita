@@ -28,8 +28,6 @@ Upper idea right now:
 #### Mobile view
 ![PanditaMobile](https://github.com/Himachallad/Pandita/assets/20709166/3b4d6f67-a592-4c10-a568-e4642e1006fc)
 
-Main page view https://xd.adobe.com/view/90ecaed6-fffd-4fac-81fd-7b70618332b6-c5bf/?fullscreen
-
 This covers:
 - Homepage layout
 - List of blogs
